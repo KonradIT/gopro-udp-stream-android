@@ -229,7 +229,9 @@ public class GoProPreview extends AppCompatActivity implements IVLCVout.Callback
 
         callHTTP();
         try {
-            String[] cmd = {"-f", "mpegts", "-i", "udp://:8554", "-f", "mpegts","udp://127.0.0.1:8555/gopro?pkt_size=64"};
+
+            String[] cmd = {"-fflags", "nobuffer", "-f", "mpegts", "-i", "udp://:8554", "-f", "mpegts","udp://127.0.0.1:8555/gopro?pkt_size=64"};
+            //String[] cmd = {"-f", "mpegts", "-i", "udp://:8554", "-f", "mpegts","udp://127.0.0.1:8555/gopro?pkt_size=64"};
             FFmpeg ffmpeg = FFmpeg.getInstance(getApplicationContext());
 
             ffmpeg.execute(cmd, new ExecuteBinaryResponseHandler() {

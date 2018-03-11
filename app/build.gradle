@@ -11,6 +11,15 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+    // This is for multiple-arch APK (OpenCV targets multiple CPU architectures)
+    splits {
+        abi {
+            enable true
+            reset()
+            include 'x86', 'x86_64', 'armeabi', 'armeabi-v7a', 'mips', 'mips64', 'arm64-v8a'
+            universalApk false
+        }
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -30,7 +39,11 @@ dependencies {
     compile 'com.squareup.okhttp3:okhttp:3.9.0'
     // ExoPlayer Lib: compile 'com.devbrackets.android:exomedia:4.0.3'
     // ExoPlayer Lib: compile 'com.google.android.exoplayer:exoplayer:r2.5.1'
+    compile 'com.google.android.exoplayer:exoplayer:r2.5.1'
+
     compile 'de.mrmaffen:libvlc-android:2.1.12@aar'
+    compile 'org.opencv:OpenCV-Android:3.1.0'
+
     testCompile 'junit:junit:4.12'
 
 }
