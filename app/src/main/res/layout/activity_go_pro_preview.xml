@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.chernowii.udp_stream_android.GoProPreview">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/setQuality"
+        android:text="set hq/sd"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="stop"
+        android:id="@+id/stoppreviewbtn"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="restart"
+        android:id="@+id/startPreview"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+    <!--
+
+    <com.devbrackets.android.exomedia.ui.widget.VideoView
+        android:id="@+id/streamView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:useDefaultControls="true"
+        android:layout_below="@id/startStream"/>
+    -->
+    <!--
+<org.videolan.libvlc.media.VideoView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/VLC"
+    android:layout_below="@+id/startStream" />
+-->
+    <SurfaceView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/surface"
+        android:layout_below="@+id/setQuality" />
+</RelativeLayout>
