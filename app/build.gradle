@@ -10,6 +10,9 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        ndk {
+            abiFilters "armeabi", "armeabi-v7a", "x86", "mips"
+        }
     }
     // This is for multiple-arch APK (OpenCV targets multiple CPU architectures)
     splits {
@@ -40,7 +43,7 @@ dependencies {
     // ExoPlayer Lib: compile 'com.devbrackets.android:exomedia:4.0.3'
     // ExoPlayer Lib: compile 'com.google.android.exoplayer:exoplayer:r2.5.1'
     compile 'com.google.android.exoplayer:exoplayer:r2.5.1'
-
+    compile 'me.neavo:vitamio:4.2.2'
     compile 'de.mrmaffen:libvlc-android:2.1.12@aar'
     compile 'org.opencv:OpenCV-Android:3.1.0'
 

@@ -29,6 +29,15 @@ public class MethodSelector extends AppCompatActivity {
                 startActivity(openEXPIntent);
             }
         });
+
+        Button openVitamio = (Button)findViewById(R.id.stream_vitamio);
+        openVitamio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent openVitamioIntent= new Intent(MethodSelector.this, VitamioGopro.class);
+                startActivity(openVitamioIntent);
+            }
+        });
     }
 
 }

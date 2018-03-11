@@ -13,7 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".GoProPreview"></activity>
+        <activity android:name=".GoProPreview" />
         <activity android:name=".MethodSelector">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,7 +21,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ExoPlayerGoPro"></activity>
+        <activity android:name=".ExoPlayerGoPro" />
+        <activity android:name=".VitamioGopro"></activity>
     </application>
 
 </manifest>
