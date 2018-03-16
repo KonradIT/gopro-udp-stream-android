@@ -199,25 +199,7 @@ public class ExoPlayerGoPro extends AppCompatActivity implements VideoRendererEv
 
 
     }
-    void callHTTP(){
-        final Request startpreview = new Request.Builder()
-                .url(HttpUrl.get(URI.create("http://10.5.5.9/gp/gpControl/execute?p1=gpStream&a1=proto_v2&c1=restart")))
-                .build();
 
-        client.newCall(startpreview).enqueue(new Callback() {
-            @Override public void onFailure(Call call, IOException e) {
-                e.printStackTrace();
-            }
-
-            @Override public void onResponse(Call call, Response response) throws IOException {
-                if (!response.isSuccessful()){
-                    Toast.makeText(getApplicationContext(),"Camera not connected!",Toast.LENGTH_SHORT).show();
-                }
-
-
-            }
-        });
-    }
 
     void GoProSet(String param, String value){
         final Request startpreview = new Request.Builder()
@@ -242,7 +224,7 @@ public class ExoPlayerGoPro extends AppCompatActivity implements VideoRendererEv
 
         //Call http://10.5.5.9/gp/gpControl/execute?p1=gpStream&a1=proto_v2&c1=restart
 
-        callHTTP();
+        utils.callHTTP(getApplicationContext());
         try {
             String[] cmd = {"-f", "mpegts", "-i", "udp://:8554", "-f", "mpegts","udp://127.0.0.1:8555/gopro?pkt_size=64"};
             FFmpeg ffmpeg = FFmpeg.getInstance(getApplicationContext());
@@ -254,14 +236,14 @@ public class ExoPlayerGoPro extends AppCompatActivity implements VideoRendererEv
                     count += 1;
                     if(count == 7){
                         count = 0;
-                        callHTTP();
+                        utils.sendMagicPacket();
                     }
                 }
 
                 @Override
                 public void onProgress(String message) {
                     Log.d("FFmpeg",message);
-                    callHTTP();
+                    utils.callHTTP(getApplicationContext());
 
                 }
 
